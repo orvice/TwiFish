@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Twitter;
 
 class HomeController extends Controller
 {
@@ -45,9 +46,10 @@ class HomeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($user)
     {
         //
+        return Twitter::getUserTimeline(['screen_name' => $user, 'count' => 20, 'format' => 'json']);
     }
 
     /**
