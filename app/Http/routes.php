@@ -17,5 +17,6 @@ Route::group(['prefix' => '/',], function()
 {
     Route::get('/', 'HomeController@index');
     Route::get('/login', 'HomeController@login');
+    Route::get('/callback', 'HomeController@callback');
     Route::get('/{user}', 'HomeController@show');
 });

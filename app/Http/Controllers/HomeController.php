@@ -63,7 +63,7 @@ class HomeController extends Controller
 
         // Make sure we make this request w/o tokens, overwrite the default values in case of login.
         Twitter::reconfig(['token' => '', 'secret' => '']);
-        $token = Twitter::getRequestToken(route('twitter.callback'));
+        $token = Twitter::getRequestToken(route('callback'));
 
         if (isset($token['oauth_token_secret']))
         {
@@ -76,7 +76,7 @@ class HomeController extends Controller
             return Redirect::to($url);
         }
 
-        return Redirect::route('twitter.error');
+        return Redirect::route('error');
     }
 
 
